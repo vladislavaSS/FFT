@@ -6,10 +6,12 @@ module FFT_Top(
 	
 	input  wire        s_tvalid,
 	input  wire [31:0] s_tdata,
+	input  wire        s_tlast,
+
 	
-	output reg         m_tvalid,
-	output reg         m_tlast ,
-	output reg  [63:0] m_tdata 
+	output wire        m_tvalid,
+	output wire        m_tlast ,
+	output wire [63:0] m_tdata 
 );
     
 FFT#()
@@ -19,6 +21,7 @@ FFT#()
     
     .s_tdata  (s_tdata),
     .s_tvalid (s_tvalid),
+    .s_tlast  (s_tlast),
     
     .m_tvalid (m_tvalid),
     .m_tlast  (m_tlast),

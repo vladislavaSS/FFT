@@ -72,8 +72,8 @@ module axis_fifo #(
     s_axis_payload = s_axis.payload();
 
   logic [DW-1:0] m_axis_payload;
-//  always_comb
-  always @(m_axis.tdata, m_axis.tstrb, m_axis.tkeep, m_axis.tlast, m_axis.tid, m_axis.tdest, m_axis.tuser)
+  always_comb
+//  always @(m_axis.tdata, m_axis.tstrb, m_axis.tkeep, m_axis.tlast, m_axis.tid, m_axis.tdest, m_axis.tuser)
     m_axis.paymask(m_axis_payload);
 
   if ( PACKET_MODE == "True" ) begin : packet_fifo
